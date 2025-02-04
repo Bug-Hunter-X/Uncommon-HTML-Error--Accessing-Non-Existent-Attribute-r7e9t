@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <div id="myDiv" data-myattribute="exists">
+    This text is inside a div.
+  </div>
+
+  <script>
+    const divElement = document.getElementById('myDiv');
+    const attributeName = "data-myattribute";
+
+    if (divElement.hasAttribute(attributeName)) {
+      console.log(divElement.getAttribute(attributeName)); // Access attribute safely
+    } else {
+      console.log(`Attribute '${attributeName}' not found`); // Handle the absence of the attribute
+    }
+
+    //Further accessing the non-existent attribute
+    const anotherAttribute = "nonExistent";
+    if(divElement.hasAttribute(anotherAttribute)){
+        console.log(divElement.getAttribute(anotherAttribute))
+    } else {
+        console.log(`Attribute '${anotherAttribute}' not found`)
+    }
+  </script>
+</body>
+</html>
